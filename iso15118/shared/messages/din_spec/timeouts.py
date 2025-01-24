@@ -16,7 +16,7 @@ class Timeouts(float, Enum):
     # Refer Section 9.6.5.5 (Table 77)
     V2G_EVCC_READYTOCHARGE_TIMEOUT = 150
     V2G_EVCC_COMMUNICATIONSETUP_TIMEOUT = 20
-    V2G_EVCC_CABLE_CHECK_TIMEOUT = 40
+    V2G_EVCC_CABLE_CHECK_TIMEOUT = 300
     V2G_EVCC_PRE_CHARGE_TIMEOUT = 7
     V2G_SECC_CPState_Detection_Timeout = 1.5
     V2G_SECC_CPOscillator_Retain_time = 1.5

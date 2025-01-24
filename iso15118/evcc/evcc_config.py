@@ -72,6 +72,16 @@ class EVCCConfig(BaseModel):
     # charge cycle count
     charge_loop_cycle: Optional[int] = Field(10, alias="chargeLoopCycle")
 
+    # Define EV limits
+    max_current_limit: Optional[int] = Field(50, alias="maxCurrentLimit")
+    max_voltage_limit: Optional[int] = Field(400, alias="maxVoltageLimit")
+    max_power_limit: Optional[int] = Field(15000, alias="maxPowerLimit")
+    target_current_limit: Optional[int] = Field(10, alias="targetCurrentLimit")
+    target_voltage_limit: Optional[int] = Field(400, alias="targetVoltageLimit")
+    battery_voltage: Optional[int] = Field(200, alias="batteryVoltage")
+    operating_mode: Optional[int] = Field(0, alias="operatingMode")
+    battery_emulation: Optional[int] = Field(0, alias="batteryEmulationMode")
+
     def load_raw_values(self):
         # conversion of list of strings to enum types.
         self.supported_energy_services = load_requested_energy_services(

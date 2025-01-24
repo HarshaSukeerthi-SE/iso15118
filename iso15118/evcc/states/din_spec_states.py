@@ -19,6 +19,7 @@ from iso15118.shared.messages.datatypes import (
     DCEVChargeParams,
     DCEVSEStatus,
     DCEVSEStatusCode,
+    PVEVTargetCurrent,
     SelectedService,
     SelectedServiceList,
 )
@@ -59,6 +60,7 @@ from iso15118.shared.messages.enums import (
     IsolationLevel,
     Namespace,
     Protocol,
+    UnitSymbol,
 )
 from iso15118.shared.messages.iso15118_2.msgdef import V2GMessage as V2GMessageV2
 from iso15118.shared.messages.iso15118_20.common_types import (
@@ -515,8 +517,10 @@ class CableCheck(StateEVCC):
         dc_charge_params = await ev_controller.get_dc_charge_params()
         pre_charge_req = PreChargeReq(
             dc_ev_status=await ev_controller.get_dc_ev_status_dinspec(),
-            ev_target_voltage=dc_charge_params.dc_target_voltage,
-            ev_target_current=dc_charge_params.dc_target_current,
+            ev_target_voltage=dc_charge_params.dc_battery_voltage,
+            ev_target_current=PVEVTargetCurrent(
+                multiplier=0, value=0, unit=UnitSymbol.AMPERE
+            ),
         )
         return pre_charge_req
 
@@ -594,8 +598,10 @@ class PreCharge(StateEVCC):
         dc_charge_params = await ev_controller.get_dc_charge_params()
         pre_charge_req = PreChargeReq(
             dc_ev_status=await ev_controller.get_dc_ev_status_dinspec(),
-            ev_target_voltage=dc_charge_params.dc_target_voltage,
-            ev_target_current=dc_charge_params.dc_target_current,
+            ev_target_voltage=dc_charge_params.dc_battery_voltage,
+            ev_target_current=PVEVTargetCurrent(
+                multiplier=0, value=0, unit=UnitSymbol.AMPERE
+            ),
         )
         return pre_charge_req
 

@@ -1,0 +1,16 @@
+{
+	"supportedProtocols": [
+		"DIN_SPEC_70121"
+	],
+	"energyTransferMode": "DC_extended",
+	"isCertInstallNeeded": false,
+	"useTls": false,
+	"chargeLoopCycle": 1000,
+	"maxCurrentLimit": -40,
+	"maxVoltageLimit": 350,
+	"maxPowerLimit": -15000,
+	"targetCurrentLimit": 0,
+	"targetVoltageLimit": 300,
+	"batteryVoltage": 300,
+	"operatingMode": 1
+}

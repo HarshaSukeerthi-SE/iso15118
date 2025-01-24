@@ -545,6 +545,7 @@ class DCEVChargeParams(BaseModel):
     dc_energy_capacity: PVEVEnergyCapacity
     dc_target_current: PVEVTargetCurrent
     dc_target_voltage: PVEVTargetVoltage
+    dc_battery_voltage: PVEVTargetVoltage
 
 
 class DCEVSEStatusCode(str, Enum):
